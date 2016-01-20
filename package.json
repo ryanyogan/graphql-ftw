@@ -4,7 +4,8 @@
   "description": "Small Graphing example",
   "main": "server.js",
   "scripts": {
-    "start": "babel-node server.js",
+    "start": "nodemon --exec npm run babel:node",
+    "babel:node": "babel-node server.js"
   },
   "babel": {
     "presets": [
@@ -26,6 +27,7 @@
     "babel-core": "^6.4.5",
     "babel-loader": "^6.2.1",
     "babel-preset-es2015": "^6.3.13",
-    "babel-preset-react": "^6.3.13"
+    "babel-preset-react": "^6.3.13",
+    "nodemon": "^1.8.1"
   }
 }
