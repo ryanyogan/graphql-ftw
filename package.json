@@ -4,7 +4,7 @@
   "description": "Small Graphing example",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon --exec npm run babel:node",
+    "dev": "webpack-dev-server -d",
     "babel:node": "babel-node server.js"
   },
   "babel": {

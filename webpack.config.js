@@ -23,6 +23,7 @@ module.exports = {
     hot: true,
     contentBase: './public'
   },
+  devTool: 'source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ]
