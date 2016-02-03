@@ -4,8 +4,8 @@
   "description": "Small Graphing example",
   "main": "server.js",
   "scripts": {
-    "dev": "webpack-dev-server -d",
-    "start:server": "babel-node --presets react,es2015 server.js"
+    "dev:client": "webpack-dev-server -d",
+    "dev:server": "nodemon --exec ./node_modules/.bin/babel-node --presets react,es2015 server.js"
   },
   "babel": {
     "presets": [
