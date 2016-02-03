@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "webpack-dev-server -d",
-    "babel:node": "babel-node server.js"
+    "start:server": "babel-node --presets react,es2015 server.js"
   },
   "babel": {
     "presets": [
