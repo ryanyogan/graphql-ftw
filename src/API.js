@@ -5,9 +5,18 @@ import ServerActions from './actions/ServerActions';
 const API = {
   fetchLinks() {
     request
-      .get('http://localhost:3000/data/links')
+      .post('/graphql')
+      .send({
+        query: `{
+          links {
+            _id,
+            title,
+            url
+          }
+        }`
+      })
       .end((err, resp) => {
-        ServerActions.receiveLinks(resp.body);
+        ServerActions.receiveLinks(resp.body.data.links);
       });
   }
 };

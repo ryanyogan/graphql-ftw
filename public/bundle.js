@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "116d3c92803773807a41"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "72e3403612885ea943ee"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -20778,8 +20778,10 @@
 	
 	var API = {
 	  fetchLinks: function fetchLinks() {
-	    _superagent2.default.get('http://localhost:3000/data/links').end(function (err, resp) {
-	      _ServerActions2.default.receiveLinks(resp.body);
+	    _superagent2.default.post('/graphql').send({
+	      query: '{\n          links {\n            _id,\n            title,\n            url\n          }\n        }'
+	    }).end(function (err, resp) {
+	      _ServerActions2.default.receiveLinks(resp.body.data.links);
 	    });
 	  }
 	};
