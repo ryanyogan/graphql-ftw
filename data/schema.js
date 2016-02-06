@@ -3,8 +3,11 @@
 import {
   GraphQLSchema,
   GraphQLObjectType,
-  GraphQLInt
+  GraphQLInt,
+  GraphQLString
 } from 'graphql';
+
+let _counter = 42;
 
 const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
@@ -12,10 +15,23 @@ const schema = new GraphQLSchema({
     fields: () => ({
       counter: {
         type: GraphQLInt,
-        resolve: () => 42
+        resolve: () => _counter
+      },
+      message: {
+        type: GraphQLString,
+        resolve: () => 'GraphQL is configured ;)'
       }
-    });
-  });
-
-  // mutation: ...
+    })
+  }),
+  mutation: new GraphQLObjectType({
+    name: 'Mutation',
+    fields: () => ({
+      incrementCounter: {
+        type: GraphQLInt,
+        resolve: () => ++_counter
+      }
+    })
+  })
 });
+
+export default schema;
