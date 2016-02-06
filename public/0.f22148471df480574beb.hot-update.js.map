@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/AppDispatcher.js?a6d0"],"names":[],"mappings":";;;;;;;;AAAA;;;;;;;;;;;;mBAIe,IAAI,eAAK,UAAL,G","file":"0.f22148471df480574beb.hot-update.js","sourcesContent":["\"use strict\";\n\nimport Flux from 'flux';\n\nexport default new Flux.Dispatcher();\n\n\n/** WEBPACK FOOTER **\n ** ./src/AppDispatcher.js\n **/"],"sourceRoot":""}
