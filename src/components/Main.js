@@ -6,12 +6,16 @@ const _getAppState = () => {
   return { links: LinkStore.getAll() };
 }
 
-export default class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = _getAppState();
-    this.onChange = this.onChange.bind(this);
-  }
+class Main extends Component {
+  static propTypes = {
+    limit: React.PropTypes.number
+  };
+
+  static defaultProps = {
+    limit: 4
+  };
+
+  state = _getAppState();
 
   componentDidMount() {
     API.fetchLinks();
@@ -22,12 +26,13 @@ export default class Main extends Component {
     LinkStore.removeListener('change', this.onChange);
   }
 
-  onChange() {
+  onChange = () => {
     this.setState(_getAppState());
-  }
+  };
 
   render() {
-    const content = this.state.links.map(link => {
+    const offset = this.props.limit;
+    const content = this.state.links.slice(0, offset).map(link => {
       return (
         <li key={link._id}>
           <a href={link.url}>{link.title}</a>
@@ -45,3 +50,5 @@ export default class Main extends Component {
     );
   }
 }
+
+export default Main;

@@ -6,6 +6,6 @@ import ReactDOM from 'react-dom';
 import Main from './components/Main';
 
 ReactDOM.render(
-  <Main />,
+  <Main limit={4} />,
   document.getElementById('app-container')
 );
